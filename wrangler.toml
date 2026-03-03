@@ -1,0 +1,8 @@
+name = "barcode-lookup"
+pages_build_output_dir = "dist"
+compatibility_date = "2024-11-01"
+
+[[kv_namespaces]]
+binding = "PRODUCTS_KV"
+id = "d0c199b97016407490e62cb9bc40c495"
+preview_id = "ace10a5aad18485fbff03ea17c87a427"

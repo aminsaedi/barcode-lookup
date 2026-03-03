@@ -1,0 +1,28 @@
+{
+  "appName": "Barcode Lookup",
+  "tagline": "Scan any grocery barcode",
+  "scan": {
+    "button": "Scan Barcode",
+    "scanning": "Scanning...",
+    "stop": "Stop",
+    "aim": "Aim at a barcode",
+    "detected": "Barcode detected!",
+    "permissionDenied": "Camera permission denied. Please allow camera access.",
+    "notSupported": "Camera not supported on this device.",
+    "error": "Scanner error. Please try again."
+  },
+  "product": {
+    "found": "Product Found",
+    "notFound": "Product Not Found",
+    "notFoundMessage": "No product information found for barcode",
+    "barcode": "Barcode",
+    "scanAnother": "Scan Another"
+  },
+  "language": {
+    "en": "English",
+    "fa": "فارسی"
+  },
+  "error": {
+    "api": "Failed to look up product. Please try again."
+  }
+}
