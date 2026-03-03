@@ -22,12 +22,12 @@ export default defineConfig({
       use: { ...devices['Pixel 5'] },
     },
   ],
-  webServer: process.env['CI']
-    ? undefined
-    : {
-        command: 'npm run build && npm run preview',
-        url: 'http://localhost:4173',
-        reuseExistingServer: !process.env['CI'],
-        timeout: 120_000,
-      },
+  // In CI the dist/ artifact is already downloaded; just serve it.
+  // Locally it builds first.
+  webServer: {
+    command: process.env['CI'] ? 'npm run preview' : 'npm run build && npm run preview',
+    url: 'http://localhost:4173',
+    reuseExistingServer: !process.env['CI'],
+    timeout: 120_000,
+  },
 })
