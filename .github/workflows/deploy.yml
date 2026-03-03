@@ -8,9 +8,13 @@ concurrency:
   group: deploy-${{ github.ref }}
   cancel-in-progress: true
 
-# CF authentication: set either CF_API_TOKEN (long-lived, preferred)
-# OR CF_REFRESH_TOKEN (wrangler OAuth refresh token — auto-refreshed per run).
-# Also set CF_ACCOUNT_ID and KV_NAMESPACE_ID.
+# Required GitHub secrets:
+#   CF_API_TOKEN  - Cloudflare API token (Pages:Edit + Workers KV Storage:Edit)
+#   CF_ACCOUNT_ID - Your Cloudflare account ID
+#   KV_NAMESPACE_ID - The PRODUCTS_KV namespace ID (d0c199b97016407490e62cb9bc40c495)
+#
+# Create the token: dash.cloudflare.com → My Profile → API Tokens → Create Token
+# Use "Edit Cloudflare Workers" template + add "Cloudflare Pages:Edit"
 
 jobs:
   deploy:
@@ -19,8 +23,6 @@ jobs:
     permissions:
       contents: read
       deployments: write
-    outputs:
-      cf-token: ${{ steps.auth.outputs.token }}
     steps:
       - uses: actions/checkout@v4
 
@@ -32,29 +34,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Resolve CF auth token
-        id: auth
-        run: |
-          if [ -n "$CF_API_TOKEN" ]; then
-            echo "Using CF_API_TOKEN directly"
-            echo "::add-mask::$CF_API_TOKEN"
-            echo "token=$CF_API_TOKEN" >> $GITHUB_OUTPUT
-          elif [ -n "$CF_REFRESH_TOKEN" ]; then
-            echo "Refreshing CF OAuth token..."
-            RESP=$(curl -sf -X POST "https://dash.cloudflare.com/oauth2/token" \
-              -H "Content-Type: application/x-www-form-urlencoded" \
-              -d "grant_type=refresh_token&refresh_token=${CF_REFRESH_TOKEN}&client_id=54d11594-84e4-41aa-b438-e81b8fa78ee7")
-            TOKEN=$(echo "$RESP" | python3 -c "import json,sys; print(json.load(sys.stdin)['access_token'])")
-            echo "::add-mask::$TOKEN"
-            echo "token=$TOKEN" >> $GITHUB_OUTPUT
-          else
-            echo "Error: set CF_API_TOKEN or CF_REFRESH_TOKEN secret"
-            exit 1
-          fi
-        env:
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-          CF_REFRESH_TOKEN: ${{ secrets.CF_REFRESH_TOKEN }}
-
       - name: Generate PWA icons
         run: npm run generate-icons
 
@@ -64,7 +43,7 @@ jobs:
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ steps.auth.outputs.token }}
+          apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           command: pages deploy dist --project-name=barcode-lookup --commit-dirty=true
 
@@ -87,30 +66,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Resolve CF auth token
-        id: auth
-        run: |
-          if [ -n "$CF_API_TOKEN" ]; then
-            echo "::add-mask::$CF_API_TOKEN"
-            echo "token=$CF_API_TOKEN" >> $GITHUB_OUTPUT
-          elif [ -n "$CF_REFRESH_TOKEN" ]; then
-            RESP=$(curl -sf -X POST "https://dash.cloudflare.com/oauth2/token" \
-              -H "Content-Type: application/x-www-form-urlencoded" \
-              -d "grant_type=refresh_token&refresh_token=${CF_REFRESH_TOKEN}&client_id=54d11594-84e4-41aa-b438-e81b8fa78ee7")
-            TOKEN=$(echo "$RESP" | python3 -c "import json,sys; print(json.load(sys.stdin)['access_token'])")
-            echo "::add-mask::$TOKEN"
-            echo "token=$TOKEN" >> $GITHUB_OUTPUT
-          else
-            echo "Error: set CF_API_TOKEN or CF_REFRESH_TOKEN secret"
-            exit 1
-          fi
-        env:
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-          CF_REFRESH_TOKEN: ${{ secrets.CF_REFRESH_TOKEN }}
-
       - name: Seed production KV
         run: node scripts/seed.mjs
         env:
-          CLOUDFLARE_API_TOKEN: ${{ steps.auth.outputs.token }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           KV_NAMESPACE_ID: ${{ secrets.KV_NAMESPACE_ID }}
