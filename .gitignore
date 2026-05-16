@@ -10,3 +10,10 @@ test-results/
 coverage/
 *.tsbuildinfo
 .DS_Store
+
+# Playwright MCP scratch
+.playwright-mcp/
+# Local dev screenshots
+app-*.png
+qlist-*.png
+google-test.png

@@ -1,12 +1,29 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { BrowserMultiFormatReader } from '@zxing/browser'
-import { NotFoundException } from '@zxing/library'
+import { NotFoundException, DecodeHintType, BarcodeFormat } from '@zxing/library'
 
 interface Props {
   onDetected: (barcode: string) => void
   onCancel: () => void
 }
+
+const HINTS = new Map<DecodeHintType, unknown>([
+  [
+    DecodeHintType.POSSIBLE_FORMATS,
+    [
+      BarcodeFormat.EAN_13,
+      BarcodeFormat.EAN_8,
+      BarcodeFormat.UPC_A,
+      BarcodeFormat.UPC_E,
+      BarcodeFormat.CODE_128,
+      BarcodeFormat.CODE_39,
+      BarcodeFormat.QR_CODE,
+      BarcodeFormat.DATA_MATRIX,
+    ],
+  ],
+  [DecodeHintType.TRY_HARDER, true],
+])
 
 export default function BarcodeScanner({ onDetected, onCancel }: Props) {
   const { t } = useTranslation()
@@ -29,7 +46,7 @@ export default function BarcodeScanner({ onDetected, onCancel }: Props) {
     async function startScanner() {
       if (!videoRef.current) return
       try {
-        const reader = new BrowserMultiFormatReader()
+        const reader = new BrowserMultiFormatReader(HINTS)
         readerRef.current = reader
 
         const controls = await reader.decodeFromVideoDevice(

@@ -1,0 +1,1204 @@
+{
+  "data": [
+    {
+      "id": 15,
+      "sort": 1,
+      "name": "نِستله",
+      "brand": 4,
+      "logo": "b4ed84bf-c809-40a0-a7c7-808d2342252b",
+      "en_name": " Nestlé",
+      "slider": null,
+      "is_brand": true,
+      "subtitle": "محصولات متنوع غذایی",
+      "alternatives": null,
+      "tags": [
+        25,
+        26,
+        27,
+        97,
+        98
+      ]
+    },
+    {
+      "id": 10,
+      "sort": 2,
+      "name": "آپتامیل",
+      "brand": 1,
+      "logo": "a77aa550-5536-4196-a236-f93b0e164117",
+      "en_name": "Aptamil",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "شیر خشک نوزاد",
+      "alternatives": "بیومیل",
+      "tags": [
+        109
+      ]
+    },
+    {
+      "id": 4,
+      "sort": 3,
+      "name": "هایپراِستار",
+      "brand": 3,
+      "logo": "efa107d5-7c8a-449e-bac8-70545959675a",
+      "en_name": "Hyperstar",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "فروشگاه زنجیره‌ای",
+      "alternatives": "شهروند، افق کوروش، دیلی مارکت، رفاه",
+      "tags": [
+        108
+      ]
+    },
+    {
+      "id": 11,
+      "sort": 4,
+      "name": "بِبِلاک",
+      "brand": 1,
+      "logo": "819503e3-a4d5-4af3-95c2-dc3798441388",
+      "en_name": "Bebelac",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "شیر خشک و غذای کودک",
+      "alternatives": "بیومیل",
+      "tags": [
+        110
+      ]
+    },
+    {
+      "id": 6,
+      "sort": 5,
+      "name": "نِسکافه",
+      "brand": 4,
+      "logo": "194e8c5b-de18-4a3b-bed8-d3e36183988f",
+      "en_name": "Nescafe",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "قهوه فوری",
+      "alternatives": null,
+      "tags": [
+        28,
+        99
+      ]
+    },
+    {
+      "id": 18,
+      "sort": 6,
+      "name": "اسپرایت",
+      "brand": 16,
+      "logo": "835e86c0-b6e3-460c-bbf1-0eeffaa6e8bc",
+      "en_name": "Sprite",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        37
+      ]
+    },
+    {
+      "id": 19,
+      "sort": 7,
+      "name": "دَسانی",
+      "brand": 16,
+      "logo": "77094194-fb10-450b-928b-4a38f0846922",
+      "en_name": "Dasani",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        38
+      ]
+    },
+    {
+      "id": 14,
+      "sort": 8,
+      "name": "کوکاکولا",
+      "brand": 16,
+      "logo": "19ea970c-f17c-49fe-b935-6face159732b",
+      "en_name": "Coca-Cola",
+      "slider": null,
+      "is_brand": true,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        34
+      ]
+    },
+    {
+      "id": 28,
+      "sort": 9,
+      "name": "سیگنال",
+      "brand": 2,
+      "logo": "f9e6cf85-44f7-4899-8de5-f4ae7ed81347",
+      "en_name": "Signal",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "خمیر دندان",
+      "alternatives": "کلگیت، اورال‌بی، دنتول",
+      "tags": [
+        47
+      ]
+    },
+    {
+      "id": 3,
+      "sort": 10,
+      "name": "دَنِت",
+      "brand": 1,
+      "logo": "f6ca94b0-1fa3-4d19-9128-93c60eab34fc",
+      "en_name": "Danette",
+      "slider": "danette",
+      "is_brand": false,
+      "subtitle": "دسر آماده لبنی",
+      "alternatives": "پگاه و رامک",
+      "tags": [
+        111,
+        112
+      ]
+    },
+    {
+      "id": 38,
+      "sort": 11,
+      "name": "نسپرسو",
+      "brand": 4,
+      "logo": "e569ff93-8121-4501-922f-805c061fe2be",
+      "en_name": "Nespresso",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "دستگاه قهوه‌ساز",
+      "alternatives": null,
+      "tags": [
+        60,
+        101,
+        102
+      ]
+    },
+    {
+      "id": 12,
+      "sort": 12,
+      "name": "مایلی‌مارکت",
+      "brand": 3,
+      "logo": "560a8d68-bf21-4c45-bf06-31e2dda0efa4",
+      "en_name": "MyliMarket",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "فروشگاه زنجیره‌ای",
+      "alternatives": "شهروند، افق کوروش، دیلی مارکت، رفاه",
+      "tags": [
+        106,
+        107
+      ]
+    },
+    {
+      "id": 61,
+      "sort": 13,
+      "name": "ماونتن دیو",
+      "brand": 18,
+      "logo": "49ab3759-09f0-4c9e-a8a5-3d475e23ec8e",
+      "en_name": "Mountain Dew",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        87
+      ]
+    },
+    {
+      "id": 44,
+      "sort": 14,
+      "name": "گیگوز",
+      "brand": 4,
+      "logo": "b8693aa3-3475-4f1d-b9f2-5790ed0e7580",
+      "en_name": "Guigoz",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "شیرخشک",
+      "alternatives": null,
+      "tags": [
+        71
+      ]
+    },
+    {
+      "id": 53,
+      "sort": 15,
+      "name": "کرِست",
+      "brand": 17,
+      "logo": "e18ba909-1009-493c-b45f-6d2516daf4ab",
+      "en_name": "Crest",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        80
+      ]
+    },
+    {
+      "id": 27,
+      "sort": 16,
+      "name": "کامفورت",
+      "brand": 2,
+      "logo": "fd285d04-2809-4d00-89d9-eccb1915fa11",
+      "en_name": "Comfort",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "شوینده",
+      "alternatives": "پرسیل و سافتلن",
+      "tags": [
+        46
+      ]
+    },
+    {
+      "id": 54,
+      "sort": 17,
+      "name": "اورال‌ بی",
+      "brand": 17,
+      "logo": "dd50ef86-9fdd-4457-b9e5-739b51cbeae3",
+      "en_name": "Oral-B",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        81
+      ]
+    },
+    {
+      "id": 20,
+      "sort": 20,
+      "name": "یونیلیوِر",
+      "brand": 2,
+      "logo": "1c46adbb-b7bb-4370-b11d-f6427dbc3f93",
+      "en_name": "Unilever",
+      "slider": null,
+      "is_brand": true,
+      "subtitle": "محصولات متنوع خانگی و بهداشتی",
+      "alternatives": null,
+      "tags": [
+        39,
+        104,
+        105
+      ]
+    },
+    {
+      "id": 65,
+      "sort": 21,
+      "name": "هایپر ایکس",
+      "brand": 19,
+      "logo": "7c0eab32-374c-40d3-9cf4-10eb145b3dd2",
+      "en_name": "HyperX",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        95
+      ]
+    },
+    {
+      "id": 67,
+      "sort": 22,
+      "name": "ویکتوس",
+      "brand": 19,
+      "logo": "2728c9b2-3115-4f9e-87d8-d47f645492e3",
+      "en_name": "Victus",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        93
+      ]
+    },
+    {
+      "id": 47,
+      "sort": 23,
+      "name": "نِستله هِلث سایِنس",
+      "brand": 4,
+      "logo": "f3bd2312-daf3-484f-9404-7685dbddcdf5",
+      "en_name": "Nestle Health Science",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "تحقیق درباره سلامتی و رژیم",
+      "alternatives": null,
+      "tags": [
+        74
+      ]
+    },
+    {
+      "id": 31,
+      "sort": 24,
+      "name": "کلیِر",
+      "brand": 2,
+      "logo": "f62154ae-33f4-4478-a2ef-cf5d80e9d3a2",
+      "en_name": "Clear",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "شامپو ضد شوره",
+      "alternatives": "هد اند شولدرز",
+      "tags": [
+        50,
+        51
+      ]
+    },
+    {
+      "id": 48,
+      "sort": 25,
+      "name": "نان‌کید",
+      "brand": 4,
+      "logo": "688115c5-a691-43ff-b24d-2506760362a7",
+      "en_name": "NANKID",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "شیر خشک غنی شده",
+      "alternatives": null,
+      "tags": [
+        75
+      ]
+    },
+    {
+      "id": 52,
+      "sort": 26,
+      "name": "پِپتامِن",
+      "brand": 4,
+      "logo": "035deef9-c3ba-44af-8ba1-eca229bd9ba1",
+      "en_name": "Peptamen",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "مکمل خوراکی",
+      "alternatives": null,
+      "tags": [
+        79
+      ]
+    },
+    {
+      "id": 5,
+      "sort": 27,
+      "name": "نان",
+      "brand": 4,
+      "logo": "5e43ebc4-fec7-495a-a77c-1fde4166bcfc",
+      "en_name": "NAN",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "شیر خشک",
+      "alternatives": null,
+      "tags": [
+        29
+      ]
+    },
+    {
+      "id": 7,
+      "sort": 28,
+      "name": "کیت‌کَت",
+      "brand": 4,
+      "logo": "bd136a6e-18a4-4b1b-95b9-3174ad1537bf",
+      "en_name": "KitKat",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "شکلات",
+      "alternatives": null,
+      "tags": [
+        30
+      ]
+    },
+    {
+      "id": 9,
+      "sort": 29,
+      "name": "کافی‌مِیت",
+      "brand": 4,
+      "logo": "e2f32ac3-b570-41cf-ad4d-2c685888704f",
+      "en_name": "CoffeeMate",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "خامه‌ساز",
+      "alternatives": null,
+      "tags": [
+        33,
+        100
+      ]
+    },
+    {
+      "id": 37,
+      "sort": 30,
+      "name": "نسکوییک",
+      "brand": 4,
+      "logo": "5aa2e9ef-3cf0-4328-ba75-66f00c93537c",
+      "en_name": "Nesquik",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "پودر کاکائو",
+      "alternatives": null,
+      "tags": [
+        58,
+        59
+      ]
+    },
+    {
+      "id": 29,
+      "sort": 31,
+      "name": "سان‌سیلک",
+      "brand": 2,
+      "logo": "5f32c21e-f75b-4719-871d-0f98dba8bfd4",
+      "en_name": "Sunsilk",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "شامپو و محصولات مراقبت مو",
+      "alternatives": "هد اند شولدرز",
+      "tags": [
+        48
+      ]
+    },
+    {
+      "id": 30,
+      "sort": 32,
+      "name": "کلوزآپ",
+      "brand": 2,
+      "logo": "13134619-3cb0-4992-82c5-f297527c8e8d",
+      "en_name": "Closeup",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "خمیر دندان",
+      "alternatives": "اورال بی و دنتول",
+      "tags": [
+        49
+      ]
+    },
+    {
+      "id": 22,
+      "sort": 33,
+      "name": "لوکس",
+      "brand": 2,
+      "logo": "6e43b5c1-5433-4074-847f-c726f74912eb",
+      "en_name": "Lux",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "صابون و محصولات آرایشی بهداشتی",
+      "alternatives": "نیوآ",
+      "tags": [
+        41
+      ]
+    },
+    {
+      "id": 45,
+      "sort": 34,
+      "name": "دنِت پاپ",
+      "brand": 1,
+      "logo": "c87f7c45-fafc-4e87-ba65-0755aef9dda2",
+      "en_name": "Danette Pop",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "دسر آماده لبنی",
+      "alternatives": "اوربیت و تریدنت",
+      "tags": [
+        72
+      ]
+    },
+    {
+      "id": 32,
+      "sort": 35,
+      "name": "پی‌اندجی",
+      "brand": 17,
+      "logo": "7a3cfce0-b4d1-4c65-8592-58972ba68b09",
+      "en_name": "P&G",
+      "slider": null,
+      "is_brand": true,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        52,
+        53
+      ]
+    },
+    {
+      "id": 33,
+      "sort": 36,
+      "name": "پَمپِرز",
+      "brand": 17,
+      "logo": "c217d2fc-8f57-48b0-b307-313f1e9f6e00",
+      "en_name": "Pampers",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        54
+      ]
+    },
+    {
+      "id": 34,
+      "sort": 37,
+      "name": "آلوِیز",
+      "brand": 17,
+      "logo": "221ef687-3634-41d1-8b81-2a138c7752d5",
+      "en_name": "Always",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        55
+      ]
+    },
+    {
+      "id": 35,
+      "sort": 38,
+      "name": "براون",
+      "brand": 17,
+      "logo": "b836db68-88b9-4f08-a897-415245c3331d",
+      "en_name": "Braun",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        56,
+        57,
+        113,
+        114
+      ]
+    },
+    {
+      "id": 36,
+      "sort": 39,
+      "name": "ژیلت",
+      "brand": 17,
+      "logo": "3dcfec2f-0288-4293-9ac2-53fbe162508b",
+      "en_name": "Gillette",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        115,
+        116
+      ]
+    },
+    {
+      "id": 42,
+      "sort": 40,
+      "name": "هِداَندشولدِرز",
+      "brand": 17,
+      "logo": "3b2d9545-663b-444c-91ab-6a41e62506cf",
+      "en_name": "head & shoulders",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        67,
+        68
+      ]
+    },
+    {
+      "id": 41,
+      "sort": 41,
+      "name": "ونوس",
+      "brand": 17,
+      "logo": "420da01e-4f22-4b8b-bc88-250cc40d3c19",
+      "en_name": "Venus",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        65,
+        66
+      ]
+    },
+    {
+      "id": 17,
+      "sort": 42,
+      "name": "کوکاکولا زیرو",
+      "brand": 16,
+      "logo": "790f385a-cc73-4653-9d8d-304c88393af2",
+      "en_name": "Coca-Cola Zero",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        36
+      ]
+    },
+    {
+      "id": 16,
+      "sort": 43,
+      "name": "فانتا",
+      "brand": 16,
+      "logo": "7921bc99-61f1-4536-9c16-274fb92d2b39",
+      "en_name": "Fanta",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        35
+      ]
+    },
+    {
+      "id": 57,
+      "sort": 44,
+      "name": "پِپسی",
+      "brand": 18,
+      "logo": "171f00ff-aaad-4a59-a43c-6a83355341f4",
+      "en_name": "Pepsi",
+      "slider": null,
+      "is_brand": true,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        83
+      ]
+    },
+    {
+      "id": 58,
+      "sort": 45,
+      "name": "پِپسی مَکس",
+      "brand": 18,
+      "logo": "02af7f13-c132-4778-9d87-c23d31795a82",
+      "en_name": "Pepsi Max",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        84
+      ]
+    },
+    {
+      "id": 59,
+      "sort": 46,
+      "name": "میراندا",
+      "brand": 18,
+      "logo": "574d0133-aab8-4b41-a52c-4ef6b1460263",
+      "en_name": "Mirinda",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        85
+      ]
+    },
+    {
+      "id": 60,
+      "sort": 47,
+      "name": "سِوِن‌آپ",
+      "brand": 18,
+      "logo": "9828c841-2069-4c20-b5b8-aa64c249f4cb",
+      "en_name": "7up",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        86
+      ]
+    },
+    {
+      "id": 62,
+      "sort": 48,
+      "name": "آکوافینا",
+      "brand": 18,
+      "logo": "d244b55d-09d3-4ac5-9d23-eb378832bdb0",
+      "en_name": "Aquafina",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        88
+      ]
+    },
+    {
+      "id": 63,
+      "sort": 49,
+      "name": "لیپتون",
+      "brand": 18,
+      "logo": "8b191f58-f7ca-448b-8751-0fd793bba960",
+      "en_name": "Lipton",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        89,
+        90
+      ]
+    },
+    {
+      "id": 64,
+      "sort": 50,
+      "name": "اِچ پی",
+      "brand": 19,
+      "logo": "c1dfb757-3aa6-44b2-8003-0827206cd68a",
+      "en_name": "HP",
+      "slider": null,
+      "is_brand": true,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        91,
+        117
+      ]
+    },
+    {
+      "id": 66,
+      "sort": 51,
+      "name": "اُمِن",
+      "brand": 19,
+      "logo": "0d088aed-6b1a-410d-9ed6-bad3e203b970",
+      "en_name": "Omen",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        92
+      ]
+    },
+    {
+      "id": 68,
+      "sort": 52,
+      "name": "زِد",
+      "brand": 19,
+      "logo": "3139087a-af00-4f57-bd9f-884cffe44638",
+      "en_name": "Z by HP",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        94
+      ]
+    },
+    {
+      "id": 69,
+      "sort": 53,
+      "name": "زیمِنس",
+      "brand": 20,
+      "logo": "37bd75a9-b584-4a70-8d0f-dc8477f2d432",
+      "en_name": "Siemens",
+      "slider": null,
+      "is_brand": true,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        96,
+        118
+      ]
+    },
+    {
+      "id": 46,
+      "sort": 54,
+      "name": "اُپتیفست",
+      "brand": 4,
+      "logo": "22fc04c8-866a-4fc9-a18e-d2590c839c26",
+      "en_name": "OPTIFAST",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "محصولات رژیمی و لاغری",
+      "alternatives": null,
+      "tags": [
+        73
+      ]
+    },
+    {
+      "id": 8,
+      "sort": 55,
+      "name": "پیورلایف",
+      "brand": 4,
+      "logo": "eb42cdbb-2198-4af7-80a1-58b9fc7c4f99",
+      "en_name": "PureLife",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "آب معدنی",
+      "alternatives": null,
+      "tags": [
+        31
+      ]
+    },
+    {
+      "id": 13,
+      "sort": 56,
+      "name": "سِرِلاک",
+      "brand": 4,
+      "logo": "a9a39760-d7a9-44c7-8bf0-9dfe2aef67d2",
+      "en_name": "CERELAC",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "غذای کمکی کودک",
+      "alternatives": null,
+      "tags": [
+        32
+      ]
+    },
+    {
+      "id": 39,
+      "sort": 57,
+      "name": "کورن‌فلکس",
+      "brand": 4,
+      "logo": "27bae53e-bc80-4697-b09d-75c7341cf73e",
+      "en_name": "Corn Flakes",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "غلات صبحانه",
+      "alternatives": null,
+      "tags": [
+        62
+      ]
+    },
+    {
+      "id": 23,
+      "sort": 58,
+      "name": "اَکس",
+      "brand": 2,
+      "logo": "b38779e8-6f19-4a8f-9a1c-dbcdc8af5628",
+      "en_name": "Axe",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "اسپری و محصولات مردانه",
+      "alternatives": null,
+      "tags": [
+        42
+      ]
+    },
+    {
+      "id": 25,
+      "sort": 59,
+      "name": "دامِستوس",
+      "brand": 2,
+      "logo": "080234e7-f90b-455d-8e0f-19d914ea0053",
+      "en_name": "Domestos",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "سفیدکننده و جرم‌گیر",
+      "alternatives": "وایتکس، من، پاکشو",
+      "tags": [
+        44
+      ]
+    },
+    {
+      "id": 24,
+      "sort": 60,
+      "name": "سیف",
+      "brand": 2,
+      "logo": "a50ce2f6-4f6b-4c10-b9ae-1ec998ab1d18",
+      "en_name": "Cif",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "مایع ظرفشویی",
+      "alternatives": "پرسیل و پریل",
+      "tags": [
+        43
+      ]
+    },
+    {
+      "id": 26,
+      "sort": 61,
+      "name": "اُمو",
+      "brand": 2,
+      "logo": "dc833532-8774-4f7c-b5b7-7cee1e577acc",
+      "en_name": "Omo",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "پودر لباسشویی",
+      "alternatives": "پرسیل و برف",
+      "tags": [
+        45
+      ]
+    },
+    {
+      "id": 43,
+      "sort": 62,
+      "name": "رِکسونا",
+      "brand": 2,
+      "logo": "fee52cce-0365-4b13-aa41-9045a87c46ef",
+      "en_name": "Rexona",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "دئودورانت و ضدعرق",
+      "alternatives": "نیوآ",
+      "tags": [
+        69,
+        70
+      ]
+    },
+    {
+      "id": 49,
+      "sort": 63,
+      "name": "نان اُپتی‌پرو",
+      "brand": 4,
+      "logo": "0034be70-bd14-40c0-aea2-a460264af362",
+      "en_name": "NAN-OPTIPRO",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "شیر خشک",
+      "alternatives": null,
+      "tags": [
+        76
+      ]
+    },
+    {
+      "id": 21,
+      "sort": 64,
+      "name": "داو",
+      "brand": 2,
+      "logo": "354db9b8-b195-4507-a0b8-602264f74eee",
+      "en_name": "Dove",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "محصولات مراقبت پوست و مو",
+      "alternatives": "نیوآ",
+      "tags": [
+        40
+      ]
+    },
+    {
+      "id": 70,
+      "sort": 65,
+      "name": "وازِلین",
+      "brand": 2,
+      "logo": "0ec6ca5c-5bbd-4b20-a3e2-874d09c0ff08",
+      "en_name": "Vaseline",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "محصولات مراقبت از پوست",
+      "alternatives": "فیروز",
+      "tags": [
+        119,
+        120
+      ]
+    },
+    {
+      "id": 71,
+      "sort": 66,
+      "name": "فِیری",
+      "brand": 17,
+      "logo": "99e9d745-9860-4fc2-9096-2afed827186e",
+      "en_name": "Fairy",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        121
+      ]
+    },
+    {
+      "id": 72,
+      "sort": null,
+      "name": "کانادا دِرای",
+      "brand": 16,
+      "logo": "fc907bb2-f710-439c-a337-298de290ce61",
+      "en_name": "Canada Dry",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "نوشابه",
+      "alternatives": null,
+      "tags": [
+        122
+      ]
+    },
+    {
+      "id": 73,
+      "sort": null,
+      "name": "رانی",
+      "brand": 16,
+      "logo": "27b3c769-1b76-4909-b550-75c32d329185",
+      "en_name": "Rani",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "آب‌میوه",
+      "alternatives": null,
+      "tags": [
+        123
+      ]
+    },
+    {
+      "id": 74,
+      "sort": null,
+      "name": "باربیکن",
+      "brand": 16,
+      "logo": "5a129186-789a-4a8c-94b9-24ae62b361ab",
+      "en_name": "Barbican",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": "نوشیدنی گازدار",
+      "alternatives": null,
+      "tags": [
+        124
+      ]
+    },
+    {
+      "id": 76,
+      "sort": null,
+      "name": "دِل",
+      "brand": 22,
+      "logo": "b0d09b15-b3bb-48b1-bc25-9c326677c914",
+      "en_name": "Dell",
+      "slider": null,
+      "is_brand": true,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        126,
+        127
+      ]
+    },
+    {
+      "id": 77,
+      "sort": null,
+      "name": "اَپل",
+      "brand": 24,
+      "logo": "81329ca3-d043-4a19-8885-ca017e45aaed",
+      "en_name": "Apple",
+      "slider": null,
+      "is_brand": true,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        128,
+        129
+      ]
+    },
+    {
+      "id": 79,
+      "sort": null,
+      "name": "مایکروسافت",
+      "brand": 25,
+      "logo": "2b353a14-be23-4c75-80cf-4caf33a25e0f",
+      "en_name": "Microsoft",
+      "slider": null,
+      "is_brand": true,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        132,
+        133
+      ]
+    },
+    {
+      "id": 80,
+      "sort": null,
+      "name": "مایکروسافت سرفیس",
+      "brand": 25,
+      "logo": "7c3e50fb-b4bc-4d5e-a9dc-17eba5c5fae7",
+      "en_name": "Microsoft Surface",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        134
+      ]
+    },
+    {
+      "id": 81,
+      "sort": null,
+      "name": "ایکس‌باکس",
+      "brand": 25,
+      "logo": "f5e7a13e-fab7-42e1-9d5b-226aef7d1528",
+      "en_name": "XBOX",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        136
+      ]
+    },
+    {
+      "id": 82,
+      "sort": null,
+      "name": "اسکچرز",
+      "brand": 26,
+      "logo": "c7a19fc8-df79-43ff-ac68-8781101d346f",
+      "en_name": "Skechers",
+      "slider": null,
+      "is_brand": true,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        137
+      ]
+    },
+    {
+      "id": 83,
+      "sort": null,
+      "name": "نایکی",
+      "brand": 27,
+      "logo": "df5455f2-f8d5-4326-a600-bd6ba5e78224",
+      "en_name": "Nike",
+      "slider": null,
+      "is_brand": true,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        138
+      ]
+    },
+    {
+      "id": 78,
+      "sort": null,
+      "name": "الیِن‌ویر",
+      "brand": 22,
+      "logo": "20e5b21b-9e3f-4dce-a3de-7486fc8e0ad0",
+      "en_name": "Alienware",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        131
+      ]
+    },
+    {
+      "id": 84,
+      "sort": null,
+      "name": "مارس",
+      "brand": 28,
+      "logo": "11cbf0b3-8f2e-46c9-8938-d6e20ab3a2b0",
+      "en_name": "Mars",
+      "slider": null,
+      "is_brand": true,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        139
+      ]
+    },
+    {
+      "id": 85,
+      "sort": null,
+      "name": "اِم اند اِم",
+      "brand": 28,
+      "logo": "47ac4db4-afa8-4e9c-a682-52b1499908b5",
+      "en_name": "M&M",
+      "slider": null,
+      "is_brand": false,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        140
+      ]
+    },
+    {
+      "id": 86,
+      "sort": null,
+      "name": "سیسکو",
+      "brand": 29,
+      "logo": "ee561297-da76-4999-8d1b-9d33f5819ef4",
+      "en_name": "Cisco",
+      "slider": null,
+      "is_brand": true,
+      "subtitle": null,
+      "alternatives": null,
+      "tags": [
+        141,
+        142
+      ]
+    }
+  ]
+}

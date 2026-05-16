@@ -1,0 +1,144 @@
+{
+  "data": [
+    {
+      "id": 23,
+      "sort": 1,
+      "user_created": "6d0d8af7-ed46-4b8c-bad2-763107ccbbfd",
+      "date_created": "2024-11-20T16:42:33.557Z",
+      "title": "خوراکی",
+      "type": "brand",
+      "icon": "fastfood",
+      "color": "#D04839"
+    },
+    {
+      "id": 25,
+      "sort": 2,
+      "user_created": "6d0d8af7-ed46-4b8c-bad2-763107ccbbfd",
+      "date_created": "2024-11-20T16:42:33.653Z",
+      "title": "آب آشامیدنی",
+      "type": "brand",
+      "icon": "water_full",
+      "color": "#2F69A2"
+    },
+    {
+      "id": 24,
+      "sort": 3,
+      "user_created": "6d0d8af7-ed46-4b8c-bad2-763107ccbbfd",
+      "date_created": "2024-11-20T16:42:33.611Z",
+      "title": "غذای کودک",
+      "type": "brand",
+      "icon": "pediatrics",
+      "color": "#AE42BD"
+    },
+    {
+      "id": 26,
+      "sort": 4,
+      "user_created": "6d0d8af7-ed46-4b8c-bad2-763107ccbbfd",
+      "date_created": "2024-11-20T17:02:49.383Z",
+      "title": "بهداشتی",
+      "type": "brand",
+      "icon": "clean_hands",
+      "color": "#553DBD"
+    },
+    {
+      "id": 9,
+      "sort": 5,
+      "user_created": "12d35988-d637-4242-9829-03153e484edf",
+      "date_created": "2024-10-30T15:40:38.441Z",
+      "title": "آرایشی",
+      "type": "brand",
+      "icon": "health_and_beauty",
+      "color": "#187FEC"
+    },
+    {
+      "id": 27,
+      "sort": 6,
+      "user_created": "6d0d8af7-ed46-4b8c-bad2-763107ccbbfd",
+      "date_created": "2024-11-20T17:08:01.952Z",
+      "title": "خرده فروشی",
+      "type": "brand",
+      "icon": "storefront",
+      "color": "#08B48C"
+    },
+    {
+      "id": 30,
+      "sort": 7,
+      "user_created": "6d0d8af7-ed46-4b8c-bad2-763107ccbbfd",
+      "date_created": "2025-03-26T21:57:15.990Z",
+      "title": "الکترونیکی",
+      "type": "brand",
+      "icon": "electric_bolt",
+      "color": "#E6A00A"
+    },
+    {
+      "id": 28,
+      "sort": 8,
+      "user_created": "6d0d8af7-ed46-4b8c-bad2-763107ccbbfd",
+      "date_created": "2024-12-10T21:59:02.580Z",
+      "title": "نوشیدنی",
+      "type": "brand",
+      "icon": "coffee",
+      "color": "#B53636"
+    },
+    {
+      "id": 29,
+      "sort": 9,
+      "user_created": "6d0d8af7-ed46-4b8c-bad2-763107ccbbfd",
+      "date_created": "2025-03-26T17:06:23.113Z",
+      "title": "مکمل خوراکی",
+      "type": "brand",
+      "icon": "stockpot",
+      "color": "#39A24B"
+    },
+    {
+      "id": 31,
+      "sort": 10,
+      "user_created": "6d0d8af7-ed46-4b8c-bad2-763107ccbbfd",
+      "date_created": "2025-03-26T22:07:05.084Z",
+      "title": "فناوری",
+      "type": "brand",
+      "icon": "developer_board",
+      "color": "#2D588F"
+    },
+    {
+      "id": 32,
+      "sort": 11,
+      "user_created": "6d0d8af7-ed46-4b8c-bad2-763107ccbbfd",
+      "date_created": "2025-03-26T22:20:03.101Z",
+      "title": "لوازم خانگی",
+      "type": "brand",
+      "icon": "local_laundry_service",
+      "color": "#3B75B0"
+    },
+    {
+      "id": 33,
+      "sort": null,
+      "user_created": "6d0d8af7-ed46-4b8c-bad2-763107ccbbfd",
+      "date_created": "2026-03-14T13:33:10.613Z",
+      "title": "مد و پوشاک",
+      "type": "brand",
+      "icon": "apparel",
+      "color": "#18222F"
+    },
+    {
+      "id": 35,
+      "sort": null,
+      "user_created": "12d35988-d637-4242-9829-03153e484edf",
+      "date_created": "2026-05-01T12:41:01.104Z",
+      "title": "سفره حلال",
+      "type": "file",
+      "icon": "favorite",
+      "color": null
+    },
+    {
+      "id": 34,
+      "sort": null,
+      "user_created": "12d35988-d637-4242-9829-03153e484edf",
+      "date_created": "2026-05-01T12:20:32.317Z",
+      "title": "شرکت‌ها",
+      "type": "file",
+      "icon": "corporate_fare",
+      "color": null
+    }
+  ]
+}

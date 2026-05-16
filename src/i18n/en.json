@@ -1,28 +1,68 @@
 {
-  "appName": "Barcode Lookup",
-  "tagline": "Scan any grocery barcode",
+  "appName": "Quarantine — Brand Watch",
+  "tagline": "Scan a barcode or browse brands flagged for ties to Israel",
+  "nav": {
+    "scan": "Scan",
+    "browse": "Browse",
+    "about": "About"
+  },
   "scan": {
-    "button": "Scan Barcode",
+    "button": "Scan a barcode",
     "scanning": "Scanning...",
     "stop": "Stop",
-    "aim": "Aim at a barcode",
-    "detected": "Barcode detected!",
+    "aim": "Aim camera at a barcode or QR code",
+    "detected": "Detected!",
     "permissionDenied": "Camera permission denied. Please allow camera access.",
     "notSupported": "Camera not supported on this device.",
-    "error": "Scanner error. Please try again."
+    "error": "Scanner error. Please try again.",
+    "manualEntry": "Enter barcode manually",
+    "manualPlaceholder": "e.g. 5449000000996",
+    "submit": "Look up"
   },
-  "product": {
-    "found": "Product Found",
-    "notFound": "Product Not Found",
-    "notFoundMessage": "No product information found for barcode",
-    "barcode": "Barcode",
-    "scanAnother": "Scan Another"
+  "result": {
+    "flagged": "Flagged brand",
+    "unflagged": "No flag found",
+    "notFound": "Product not recognised",
+    "notFoundMessage": "We don't have a record for barcode {{barcode}} and Open Food Facts has no entry either. Try the Browse tab or another product.",
+    "matchedVia": "Matched via",
+    "off": "Open Food Facts",
+    "kv": "Curated data",
+    "scanAnother": "Scan another",
+    "viewCompany": "View company details",
+    "viewDossier": "Read source dossier on qlist.ir"
+  },
+  "company": {
+    "country": "Country",
+    "subBrands": "Sub-brands",
+    "description": "About",
+    "why": "Why it's listed",
+    "sources": "Sources",
+    "openSource": "Original Persian dossier"
+  },
+  "browse": {
+    "title": "Brands & companies",
+    "subtitle": "{{n}} companies, {{m}} sub-brands",
+    "searchPlaceholder": "Search brand or company…",
+    "filterAll": "All",
+    "showAll": "Show all",
+    "noResults": "No matches — try a different search or category"
+  },
+  "about": {
+    "title": "About this app",
+    "intro": "This is an English mirror of qlist.ir, an Iranian consumer-activism project that lists multinational brands it says have economic ties to Israel. The data — companies, sub-brands, and source dossiers — is pulled directly from qlist.ir's public Directus API and re-presented here with English labels and a barcode scanner on top.",
+    "stance": "Editorial stance",
+    "stanceBody": "We do not assert these claims in our own voice. Every flagged entry is attributed to qlist.ir, and where available we link directly to qlist.ir's source dossier (which cites Western reporting from outlets like The Guardian, The Independent, and Middle East Monitor). Use this app as a starting point for your own research, not as the last word.",
+    "scope": "What we include",
+    "scopeBody": "We mirror qlist.ir's list of companies it flags for Israel-related ties. We do not reproduce qlist.ir's separate \"American-owned\" boycott category — that is a political stance specific to the Iranian movement and isn't reproduced here.",
+    "data": "Data freshness",
+    "dataBody": "Snapshot generated on {{date}}. To refresh, run scripts/qlist-pull.mjs and scripts/qlist-normalize.mjs.",
+    "openSource": "Source code on GitHub"
   },
   "language": {
     "en": "English",
     "fa": "فارسی"
   },
   "error": {
-    "api": "Failed to look up product. Please try again."
+    "api": "Lookup failed. Please try again."
   }
 }

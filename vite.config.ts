@@ -11,10 +11,10 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['icons/*.png', 'icons/*.svg'],
       manifest: {
-        name: 'Barcode Lookup',
-        short_name: 'BarcodeX',
-        description: 'Scan grocery barcodes to identify products in English and Persian',
-        theme_color: '#1e40af',
+        name: 'Quarantine — Brand Watch',
+        short_name: 'Quarantine',
+        description: 'Scan a barcode or browse multinational brands flagged by qlist.ir for ties to Israel.',
+        theme_color: '#0f172a',
         background_color: '#0f172a',
         display: 'standalone',
         orientation: 'portrait',
@@ -35,7 +35,11 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+        globPatterns: ['**/*.{js,css,html,ico,svg,woff2}'],
+        // Skip the brand logos from precache — fetched lazily and cached at
+        // runtime instead, so the install footprint stays small.
+        globIgnores: ['**/qlist-assets/**'],
+        maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
         runtimeCaching: [
           {
             urlPattern: /^\/api\//,
@@ -43,6 +47,22 @@ export default defineConfig({
             options: {
               cacheName: 'api-cache',
               networkTimeoutSeconds: 5,
+            },
+          },
+          {
+            urlPattern: /\/qlist-assets\//,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'qlist-logos',
+              expiration: { maxEntries: 200, maxAgeSeconds: 60 * 60 * 24 * 30 },
+            },
+          },
+          {
+            urlPattern: /^https:\/\/images\.openfoodfacts\.org\//,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'off-images',
+              expiration: { maxEntries: 200, maxAgeSeconds: 60 * 60 * 24 * 30 },
             },
           },
         ],

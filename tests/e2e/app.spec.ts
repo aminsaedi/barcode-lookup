@@ -13,22 +13,28 @@ async function mockLookupApi(page: Page, response: object) {
 
 // ---------- Tests ----------
 test.describe('App shell', () => {
-  test('loads and shows scan button', async ({ page }) => {
+  test('loads with the Scan tab and shows scan button', async ({ page }) => {
     await page.goto('/')
     await expect(page.getByTestId('scan-button')).toBeVisible()
   })
 
-  test('displays app name', async ({ page }) => {
+  test('displays English app name', async ({ page }) => {
     await page.goto('/')
-    await expect(page.locator('h1')).toContainText('Barcode Lookup')
+    await expect(page.locator('h1').first()).toContainText('Quarantine')
   })
 
   test('has language switcher with EN and FA buttons', async ({ page }) => {
     await page.goto('/')
-    const switcher = page.getByTestId('language-switcher')
-    await expect(switcher).toBeVisible()
+    await expect(page.getByTestId('language-switcher')).toBeVisible()
     await expect(page.getByTestId('lang-en')).toBeVisible()
     await expect(page.getByTestId('lang-fa')).toBeVisible()
+  })
+
+  test('has three primary tabs', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.getByTestId('tab-scan')).toBeVisible()
+    await expect(page.getByTestId('tab-browse')).toBeVisible()
+    await expect(page.getByTestId('tab-about')).toBeVisible()
   })
 })
 
@@ -37,12 +43,10 @@ test.describe('Language switching', () => {
     await page.goto('/')
     await page.getByTestId('lang-fa').click()
 
-    // Wait for direction change
     await expect(page.locator('html')).toHaveAttribute('dir', 'rtl')
     await expect(page.locator('html')).toHaveAttribute('lang', 'fa')
 
-    // App name should be in Persian
-    await expect(page.locator('h1')).toContainText('شناسه بارکد')
+    await expect(page.locator('h1').first()).toContainText('قرنطینه')
   })
 
   test('switches back to English (LTR)', async ({ page }) => {
@@ -51,97 +55,115 @@ test.describe('Language switching', () => {
     await page.getByTestId('lang-en').click()
 
     await expect(page.locator('html')).toHaveAttribute('dir', 'ltr')
-    await expect(page.locator('h1')).toContainText('Barcode Lookup')
+    await expect(page.locator('h1').first()).toContainText('Quarantine')
   })
 
-  test('language preference is remembered across navigation', async ({ page }) => {
+  test('language preference is remembered across reloads', async ({ page }) => {
     await page.goto('/')
     await page.getByTestId('lang-fa').click()
-
-    // Reload page
     await page.reload()
     await expect(page.locator('html')).toHaveAttribute('dir', 'rtl')
   })
 })
 
-test.describe('Product lookup – found', () => {
+test.describe('Browse tab', () => {
+  test('shows companies', async ({ page }) => {
+    await page.goto('/')
+    await page.getByTestId('tab-browse').click()
+    await expect(page.getByTestId('browse-view')).toBeVisible()
+    await expect(page.getByTestId('browse-search')).toBeVisible()
+    // At least one company card should render
+    const cards = page.getByTestId('company-card')
+    expect(await cards.count()).toBeGreaterThan(0)
+  })
+
+  test('search narrows the list', async ({ page }) => {
+    await page.goto('/')
+    await page.getByTestId('tab-browse').click()
+    await page.getByTestId('browse-search').fill('Nestlé')
+    // Nestle should be visible, Apple should not
+    await expect(
+      page.locator('[data-company-slug="nestle"]'),
+    ).toBeVisible()
+    await expect(
+      page.locator('[data-company-slug="apple"]'),
+    ).toHaveCount(0)
+  })
+
+  test('category chip filters results', async ({ page }) => {
+    await page.goto('/')
+    await page.getByTestId('tab-browse').click()
+    // Tag id 25 = "Drinking water". Scroll into the horizontally-scrollable
+    // chip strip before clicking so the chip is in view.
+    const chip = page.getByTestId('chip-25')
+    await chip.scrollIntoViewIfNeeded()
+    await chip.click()
+    const cards = page.getByTestId('company-card')
+    expect(await cards.count()).toBeGreaterThan(0)
+    // Apple (electronics) should not appear under Drinking water
+    await expect(page.locator('[data-company-slug="apple"]')).toHaveCount(0)
+  })
+})
+
+test.describe('About tab', () => {
+  test('renders attribution + links', async ({ page }) => {
+    await page.goto('/')
+    await page.getByTestId('tab-about').click()
+    await expect(page.getByTestId('about-view')).toBeVisible()
+    // Multiple qlist.ir links (button + footer); just confirm at least one is visible.
+    await expect(page.getByRole('link', { name: /qlist\.ir/ }).first()).toBeVisible()
+  })
+})
+
+test.describe('Manual barcode entry', () => {
   test.beforeEach(async ({ page }) => {
     await mockLookupApi(page, {
       barcode: '5449000000996',
       found: true,
-      product: { en: 'Coca-Cola Classic 330ml', fa: 'کوکاکولا کلاسیک ۳۳۰ میلی‌لیتر' },
+      off: { name: 'Coca-Cola', productName: 'Coca-Cola Classic 330ml' },
     })
   })
 
-  test('shows product name in English after mock scan', async ({ page }) => {
+  test('manual entry triggers lookup and shows company card', async ({ page }) => {
     await page.goto('/')
-
-    // Simulate a scan by directly calling the API route and updating UI
-    // We expose a test hook via window.__mockScan__
-    await page.evaluate(() => {
-      // Trigger the scan result programmatically via custom event
-      window.dispatchEvent(new CustomEvent('__test_scan__', { detail: '5449000000996' }))
-    })
-
-    // App renders result via fetch mock – wait for product card
-    // Since we can't trigger the internal scanner, we test the API
-    const res = await page.evaluate(async () => {
-      const r = await fetch('/api/lookup?barcode=5449000000996')
-      return r.json()
-    })
-    expect(res).toMatchObject({ found: true, barcode: '5449000000996' })
-    expect(res.product.en).toBe('Coca-Cola Classic 330ml')
-  })
-
-  test('shows product card with barcode', async ({ page }) => {
-    // Navigate and mock the internal state by intercepting API
-    await page.goto('/')
-
-    // Use page.evaluate to test fetch directly through our mock route
-    const data = await page.evaluate(async () => {
-      const resp = await fetch('/api/lookup?barcode=5449000000996')
-      return resp.json()
-    })
-    expect(data.found).toBe(true)
-    expect(data.product).toBeDefined()
+    await page.getByTestId('manual-button').click()
+    await page.getByTestId('manual-form').getByRole('textbox').fill('5449000000996')
+    await page.getByRole('button', { name: /Look up/i }).click()
+    await expect(page.getByTestId('scan-result')).toBeVisible()
+    // OFF returned "Coca-Cola" — should map to the cocacola company
+    await expect(page.locator('[data-company-slug="cocacola"]')).toBeVisible()
   })
 })
 
-test.describe('Product lookup – not found', () => {
-  test('API returns found=false for unknown barcode', async ({ page }) => {
+test.describe('Product lookup API mocking', () => {
+  test('unknown barcode renders the no-flag card', async ({ page }) => {
     await mockLookupApi(page, { barcode: '9999999999999', found: false })
     await page.goto('/')
-
-    const data = await page.evaluate(async () => {
-      const resp = await fetch('/api/lookup?barcode=9999999999999')
-      return resp.json()
-    })
-    expect(data.found).toBe(false)
+    await page.getByTestId('manual-button').click()
+    await page.getByTestId('manual-form').getByRole('textbox').fill('9999999999999')
+    await page.getByRole('button', { name: /Look up/i }).click()
+    await expect(page.getByTestId('no-flag-card')).toBeVisible()
   })
 })
 
 test.describe('Accessibility', () => {
-  test('scan button is keyboard accessible', async ({ page }) => {
-    await page.goto('/')
-    await page.keyboard.press('Tab')
-    // Check that a focusable element received focus
-    const focused = page.locator(':focus')
-    await expect(focused).toBeVisible()
-  })
-
   test('language buttons have aria-pressed', async ({ page }) => {
     await page.goto('/')
-    const enBtn = page.getByTestId('lang-en')
-    await expect(enBtn).toHaveAttribute('aria-pressed')
+    await expect(page.getByTestId('lang-en')).toHaveAttribute('aria-pressed')
+  })
+
+  test('tab buttons have aria-pressed', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.getByTestId('tab-scan')).toHaveAttribute('aria-pressed')
   })
 })
 
 test.describe('PWA manifest', () => {
-  test('manifest.json is reachable', async ({ page }) => {
+  test('manifest is reachable and identifies the rebranded app', async ({ page }) => {
     const res = await page.request.get('/manifest.webmanifest')
     expect(res.status()).toBe(200)
     const manifest = await res.json()
-    expect(manifest.name).toBe('Barcode Lookup')
+    expect(manifest.name).toContain('Quarantine')
     expect(manifest.display).toBe('standalone')
   })
 })
