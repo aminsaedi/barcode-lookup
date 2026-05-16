@@ -35,35 +35,43 @@ async function pullCollection(name, fields) {
   return body.data ?? []
 }
 
-async function downloadAsset(uuid) {
+async function downloadAsset(uuid, attempt = 1) {
   if (!uuid) return null
-  // First HEAD the asset to learn the extension (Directus serves via Content-Type).
   const url = `${PANEL}/assets/${uuid}`
-  const head = await fetch(url, { method: 'HEAD' })
-  if (!head.ok) {
-    console.warn(`  ! asset ${uuid}: HTTP ${head.status}`)
-    return null
-  }
-  const ct = head.headers.get('content-type') || ''
-  const ext =
-    ct.includes('svg') ? 'svg'
-    : ct.includes('png') ? 'png'
-    : ct.includes('jpeg') ? 'jpg'
-    : ct.includes('webp') ? 'webp'
-    : 'bin'
-  const localName = `${uuid}.${ext}`
-  const localPath = resolve(ASSET_DIR, localName)
-  if (existsSync(localPath) && statSync(localPath).size > 0) {
+  try {
+    const head = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(20000) })
+    if (!head.ok) {
+      console.warn(`  ! asset ${uuid}: HTTP ${head.status}`)
+      return null
+    }
+    const ct = head.headers.get('content-type') || ''
+    const ext =
+      ct.includes('svg') ? 'svg'
+      : ct.includes('png') ? 'png'
+      : ct.includes('jpeg') ? 'jpg'
+      : ct.includes('webp') ? 'webp'
+      : 'bin'
+    const localName = `${uuid}.${ext}`
+    const localPath = resolve(ASSET_DIR, localName)
+    if (existsSync(localPath) && statSync(localPath).size > 0) {
+      return localName
+    }
+    const res = await fetch(url, { signal: AbortSignal.timeout(30000) })
+    if (!res.ok) {
+      console.warn(`  ! asset ${uuid}: HTTP ${res.status}`)
+      return null
+    }
+    const buf = Buffer.from(await res.arrayBuffer())
+    writeFileSync(localPath, buf)
     return localName
-  }
-  const res = await fetch(url)
-  if (!res.ok) {
-    console.warn(`  ! asset ${uuid}: HTTP ${res.status}`)
+  } catch (err) {
+    if (attempt < 3) {
+      await new Promise((r) => setTimeout(r, 2000 * attempt))
+      return downloadAsset(uuid, attempt + 1)
+    }
+    console.warn(`  ! asset ${uuid}: ${err.message || err}`)
     return null
   }
-  const buf = Buffer.from(await res.arrayBuffer())
-  writeFileSync(localPath, buf)
-  return localName
 }
 
 async function main() {
@@ -84,6 +92,14 @@ async function main() {
   }
   for (const p of data.posts ?? []) {
     if (p.cover) uuids.add(p.cover)
+    // Walk EditorJS blocks for inline images.
+    const blocks = p.copy?.blocks ?? []
+    for (const b of blocks) {
+      if (b.type === 'image') {
+        const fid = b.data?.file?.fileId
+        if (fid) uuids.add(fid)
+      }
+    }
   }
 
   let ok = 0, fail = 0

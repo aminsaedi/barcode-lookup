@@ -44,30 +44,44 @@ export default function CompanyCard({ company, highlightSubBrand, compact }: Pro
           </p>
         </div>
         <span
-          className="px-3 py-1 rounded-full text-xs font-semibold bg-red-500/15 text-red-300 border border-red-500/30 whitespace-nowrap"
+          className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap border ${
+            company.status === 'supports-israel'
+              ? 'bg-red-500/15 text-red-300 border-red-500/30'
+              : company.status === 'american'
+                ? 'bg-amber-500/15 text-amber-200 border-amber-500/30'
+                : 'bg-red-500/15 text-red-300 border-red-500/30'
+          }`}
           data-testid="status-pill"
+          data-status={company.status}
         >
-          {t('result.flagged')}
+          {company.qlistStatus[lang] || company.qlistStatus.fa || t('result.flagged')}
         </span>
       </header>
 
-      {/* Why / claim */}
+      {/* Why it's listed — faithful translation of qlist.ir's brand.description.
+          Hidden when qlist has no description for this brand. */}
       {company.claim[lang] && (
         <div className="px-4 py-3 bg-amber-500/10 border-b border-slate-700">
-          <p className="text-xs uppercase tracking-wide text-amber-300/80 font-semibold mb-1">
+          <p className="text-xs uppercase tracking-wide text-amber-300/80 font-semibold mb-2">
             {t('company.why')}
           </p>
-          <p className="text-sm text-slate-200 leading-relaxed">{company.claim[lang]}</p>
-        </div>
-      )}
-
-      {/* Description */}
-      {company.description[lang] && (
-        <div className="px-4 py-3 border-b border-slate-700">
-          <p className="text-xs uppercase tracking-wide text-slate-400 font-semibold mb-1">
-            {t('company.description')}
+          <p
+            className="text-sm text-slate-200 leading-relaxed whitespace-pre-line"
+            data-testid="company-claim"
+          >
+            {company.claim[lang]}
           </p>
-          <p className="text-sm text-slate-300 leading-relaxed">{company.description[lang]}</p>
+          <p className="text-[10px] text-slate-500 mt-2">
+            {t('company.translatedFrom')}{' '}
+            <a
+              href="https://qlist.ir"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-slate-300"
+            >
+              qlist.ir
+            </a>
+          </p>
         </div>
       )}
 
@@ -128,18 +142,29 @@ export default function CompanyCard({ company, highlightSubBrand, compact }: Pro
         </div>
       )}
 
-      {/* Dossier link */}
+      {/* Dossier link — opens internal blog view if we host the post */}
       {company.dossier && (
-        <footer className="px-4 py-3">
+        <footer className="px-4 py-3 flex flex-col gap-2">
+          <button
+            type="button"
+            onClick={() =>
+              window.dispatchEvent(
+                new CustomEvent('open-blog', { detail: company.dossier!.slug }),
+              )
+            }
+            className="flex items-center justify-between gap-3 bg-slate-900/60 hover:bg-slate-900 rounded-lg px-3 py-2 text-sm text-slate-200 transition-colors text-start w-full"
+            data-testid="dossier-link"
+          >
+            <span className="line-clamp-2">{t('result.viewDossier')}</span>
+            <span aria-hidden="true" className="text-slate-500">→</span>
+          </button>
           <a
             href={company.dossier.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-between gap-3 bg-slate-900/60 hover:bg-slate-900 rounded-lg px-3 py-2 text-sm text-slate-200 transition-colors"
-            data-testid="dossier-link"
+            className="text-xs text-slate-500 hover:text-slate-300 self-end"
           >
-            <span className="line-clamp-2">{t('result.viewDossier')}</span>
-            <span aria-hidden="true" className="text-slate-500">↗</span>
+            {t('company.openSource')} ↗
           </a>
         </footer>
       )}

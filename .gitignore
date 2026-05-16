@@ -17,3 +17,4 @@ coverage/
 app-*.png
 qlist-*.png
 google-test.png
+.claude/

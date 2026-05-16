@@ -35,9 +35,16 @@
     "country": "Country",
     "subBrands": "Sub-brands",
     "description": "About",
-    "why": "Why it's listed",
+    "why": "Why it's listed (per qlist.ir)",
     "sources": "Sources",
-    "openSource": "Original Persian dossier"
+    "openSource": "View original Persian page",
+    "translatedFrom": "Faithful English translation of the entry on"
+  },
+  "blog": {
+    "back": "Back",
+    "notFound": "This dossier hasn't been mirrored locally yet.",
+    "attribution": "Original Persian source:",
+    "pendingTranslation": "English translation is pending for this dossier — showing the original Persian text below."
   },
   "browse": {
     "title": "Brands & companies",

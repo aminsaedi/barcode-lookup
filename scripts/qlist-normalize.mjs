@@ -48,116 +48,52 @@ const CATEGORY_EN = {
   // newer tag ids we've seen on certain sub-brands (97, 98 etc) fall through to null
 }
 
-// Company slug → English description (1–2 sentences, paraphrased from public facts).
-// The qlist-specific claims are surfaced in `claim` separately and always attributed.
+// English company name (Latin script). All other content — the status label
+// and the long-form "why it's listed" reason — comes directly from qlist.ir
+// (brand.subtitle and brand.description respectively).
+//
+// CLAIM_EN is a faithful translation of qlist.ir's Persian brand.description.
+// Companies that have an empty description on qlist.ir get an empty string
+// here — we will NOT invent reasons for them. The only signal those carry on
+// qlist.ir is the status badge, which is preserved verbatim.
 const COMPANY_EN = {
-  nestle: {
-    name: 'Nestlé',
-    description:
-      'Swiss multinational food and beverage company headquartered in Vevey. World\'s largest food company by revenue.',
-    claim:
-      'Flagged by qlist.ir for ownership of Israeli food maker Osem (now Osem-Nestlé), with some facilities reported in West Bank settlements.',
-  },
-  cocacola: {
-    name: 'The Coca-Cola Company',
-    description:
-      'American multinational beverage corporation headquartered in Atlanta, Georgia. Best known for its namesake cola.',
-    claim:
-      'Flagged by qlist.ir over a bottling franchise in Israel since 1968 and listed on consumer-boycott rosters globally.',
-  },
-  unilever: {
-    name: 'Unilever',
-    description:
-      'British multinational consumer goods company headquartered in London. Operates in foods, home care and personal care.',
-    claim:
-      'Flagged by qlist.ir over Israeli subsidiary operations; subject of long-running BDS-aligned consumer campaigns.',
-  },
-  carrefour: {
-    name: 'Carrefour',
-    description:
-      'French multinational retail and wholesaling corporation headquartered in Massy, France. One of the largest hypermarket chains.',
-    claim:
-      'Flagged by qlist.ir over a 2022 franchise agreement with Israeli retailer Electra Consumer Products, which operates stores including in settlements.',
-  },
-  danone: {
-    name: 'Danone',
-    description:
-      'French multinational food-products corporation based in Paris. Major presence in dairy, plant-based, waters and specialized nutrition.',
-    claim:
-      'Flagged by qlist.ir over its joint venture Strauss Group dairy products in Israel.',
-  },
-  pepsi: {
-    name: 'PepsiCo',
-    description:
-      'American multinational food, snack and beverage corporation headquartered in Harrison, New York.',
-    claim:
-      'Flagged by qlist.ir over a long-standing bottling and snack manufacturing presence in Israel.',
-  },
-  'p-and-g': {
-    name: 'Procter & Gamble',
-    description:
-      'American multinational consumer goods corporation headquartered in Cincinnati, Ohio. Owns hygiene, beauty and home-care brands.',
-    claim:
-      'Flagged by qlist.ir over subsidiary operations and distribution agreements in Israel.',
-  },
-  hp: {
-    name: 'HP Inc.',
-    description:
-      'American multinational information technology company headquartered in Palo Alto, California. Makes PCs, printers and supplies.',
-    claim:
-      'Flagged by qlist.ir; HP has historically been targeted by BDS campaigns over IT contracts with Israeli government agencies.',
-  },
-  siemens: {
-    name: 'Siemens',
-    description:
-      'German multinational technology conglomerate headquartered in Munich.',
-    claim:
-      'Flagged by qlist.ir (under review) over reported infrastructure projects in Israel.',
-  },
-  microsoft: {
-    name: 'Microsoft',
-    description:
-      'American multinational technology corporation headquartered in Redmond, Washington.',
-    claim:
-      'Flagged by qlist.ir over Israeli R&D centers and reported cloud / AI agreements with Israeli government agencies.',
-  },
-  skechers: {
-    name: 'Skechers',
-    description:
-      'American lifestyle and performance footwear company headquartered in Manhattan Beach, California.',
-    claim: 'Flagged by qlist.ir as a US-headquartered brand operating in Israel.',
-  },
-  nike: {
-    name: 'Nike',
-    description:
-      'American athletic-footwear and apparel corporation headquartered in Beaverton, Oregon.',
-    claim: 'Flagged by qlist.ir as a US-headquartered brand operating in Israel.',
-  },
-  mars: {
-    name: 'Mars, Incorporated',
-    description:
-      'American multinational manufacturer of confectionery, pet food and other food products, headquartered in McLean, Virginia.',
-    claim: 'Flagged by qlist.ir over a manufacturing and distribution presence in Israel.',
-  },
-  apple: {
-    name: 'Apple Inc.',
-    description:
-      'American multinational technology company headquartered in Cupertino, California.',
-    claim:
-      'Flagged by qlist.ir; Apple operates large R&D centers in Israel via acquisitions including Anobit and PrimeSense.',
-  },
-  dell: {
-    name: 'Dell Technologies',
-    description:
-      'American multinational technology company headquartered in Round Rock, Texas.',
-    claim: 'Flagged by qlist.ir over operations and supply-chain ties in Israel.',
-  },
-  cisco: {
-    name: 'Cisco Systems',
-    description:
-      'American multinational digital communications technology conglomerate headquartered in San Jose, California.',
-    claim: 'Flagged by qlist.ir over R&D operations in Israel.',
-  },
+  nestle:      { name: 'Nestlé' },
+  cocacola:    { name: 'The Coca-Cola Company' },
+  unilever:    { name: 'Unilever' },
+  carrefour:   { name: 'Carrefour' },
+  danone:      { name: 'Danone' },
+  pepsi:       { name: 'PepsiCo' },
+  'p-and-g':   { name: 'Procter & Gamble' },
+  hp:          { name: 'HP Inc.' },
+  siemens:     { name: 'Siemens' },
+  microsoft:   { name: 'Microsoft' },
+  skechers:    { name: 'Skechers' },
+  nike:        { name: 'Nike' },
+  mars:        { name: 'Mars, Incorporated' },
+  apple:       { name: 'Apple Inc.' },
+  dell:        { name: 'Dell Technologies' },
+  cisco:       { name: 'Cisco Systems' },
+}
+
+// Faithful English translations of qlist.ir's Persian brand.description.
+// Only the 4 companies that have a description on qlist.ir get an English
+// translation; the rest stay empty (we do NOT fabricate reasoning).
+const CLAIM_EN = {
+  nestle:
+    "Nestlé, the Swiss food and beverage giant, is one of the major supporters of the Israeli regime. By acquiring 100% of the shares of one of Israel's largest food companies — Osem — the company, in addition to substantial investment, has significantly helped expand Osem's export markets through technology transfer. Some Osem factories are located in Zionist settlements. According to The Jewish Standard (a subsidiary of The Times of Israel), in 1998 Nestlé received the \"Jubilee\" award from the Israeli Prime Minister in recognition of its efforts to strengthen the Israeli regime's economy.",
+  unilever:
+    "Unilever, an Anglo-Dutch multinational corporation with revenue exceeding $59 billion in 2023, operates in 190 countries including Iran and Israel. Through extensive investments in Israel — such as buying stakes in Israeli companies like Vitco and Strauss, and operating in Zionist settlements — it has contributed to the expansion of Israel's economy. Unilever also owns eight companies under the \"Unilever Israel\" name. The company has consistently been criticised by pro-Palestinian movements for supporting Israel and operating in occupied territories. Even its subsidiary brand Ben & Jerry's, which tried to halt sales in occupied settlements, faced opposition from Unilever and pressure from Israel and was ultimately sold to an Israeli company. Unilever has also directly supported settlement-building in the past by purchasing shares of settlement-based companies.",
+  carrefour:
+    "Carrefour, the French retail-chain giant, is one of the major supporters of the Israeli regime. By opening 50 stores in Israel through a partnership with the Zionist company \"Electra\", the company is complicit in Zionist settlement-building in Palestine. \"Electra\" has been on the United Nations sanctions list for years because of its active participation in settlement-building. Carrefour, with its broad supply chain, has also lowered the cost of supplying goods in Israel and helped improve Israeli citizens' purchasing power. Carrefour is present in the Iranian market through a partnership with the Emirati holding company \"Majid Al Futtaim\", under the \"Hyperstar\" and \"MyliMarket\" brands.",
+  danone:
+    "Danone, the multinational food-products giant — which we in Iran know by products such as \"Danette\", \"Aptamil\" and \"Bebelac\" — is one of the best-known supporters of the Israeli regime. Through investments in Israeli start-ups and partnerships with large Israeli companies such as \"Strauss\", the company has made a significant contribution to the expansion of Israel's economy. Danone has had a strong presence in the Iranian market for years through subsidiaries such as \"Danone Lebani Pars\" and \"Nutricia MMP\".",
+}
+
+// Faithful English translations of qlist.ir's status badge (brand.subtitle).
+const SUBTITLE_EN = {
+  'حامی اسرائیل': 'Supports Israel',
+  'شرکت آمریکایی': 'American company',
+  'آمریکایی': 'American company',
 }
 
 // Sub-brand id → { subtitle, categories } (English).
@@ -278,7 +214,17 @@ const companies = brands
   .filter((b) => b.status === 'published')
   .sort((a, b) => (a.sort ?? Number.MAX_SAFE_INTEGER) - (b.sort ?? Number.MAX_SAFE_INTEGER))
   .map((b) => {
-    const en = COMPANY_EN[b.slug] || { name: b.en_name?.trim() || b.slug, description: '', claim: '' }
+    const en = COMPANY_EN[b.slug] || { name: b.en_name?.trim() || b.slug }
+    const subtitleFa = (b.subtitle || '').trim()
+    const subtitleEn = SUBTITLE_EN[subtitleFa] || subtitleFa
+    // Status drives the badge colour: 'supports-israel' is the strong claim
+    // with a full description; 'american' is a lighter qlist label.
+    const status =
+      subtitleFa.includes('اسرائیل') ? 'supports-israel'
+      : subtitleFa.includes('آمریکا') ? 'american'
+      : 'flagged'
+    const claimFa = (b.description || '').trim()
+    const claimEn = CLAIM_EN[b.slug] || ''
     const subBrands = (b.sub_brands || [])
       .map((id) => subById[id])
       .filter(Boolean)
@@ -306,19 +252,19 @@ const companies = brands
       name: { en: en.name, fa: b.name },
       country: (b.country || '').toLowerCase(),
       logo: assetPath(b.logo),
-      description: {
-        en: en.description,
-        fa: b.description || '',
-      },
-      claim: { en: en.claim, fa: b.subtitle || 'حامی اسرائیل' },
-      status: 'flagged', // every published entry on qlist is flagged
+      // Status badge text — qlist.ir's brand.subtitle, translated.
+      qlistStatus: { en: subtitleEn, fa: subtitleFa || '' },
+      status, // 'supports-israel' | 'american' | 'flagged'
+      // Long-form reason — qlist.ir's brand.description, translated. May be
+      // empty when qlist has no description for this brand.
+      claim: { en: claimEn, fa: claimFa },
       subBrands,
       dossier: post
         ? {
             slug: post.slug,
             url: `https://qlist.ir/blog/${post.slug}/`,
             title: { en: b.doc_title || post.title, fa: post.title },
-            summary: { en: en.claim, fa: post.summary || '' },
+            summary: { en: claimEn, fa: post.summary || '' },
             cover: assetPath(post.cover),
           }
         : null,
@@ -346,12 +292,75 @@ const categories = Object.entries(CATEGORY_EN)
   .filter(([, v]) => v)
   .map(([id, v]) => ({ id: Number(id), label: v.label, icon: v.icon }))
 
+// ── Posts (dossiers) ─────────────────────────────────────────────────────
+// We pass the full EditorJS body through and rewrite inline image URLs so
+// they point at our local /qlist-assets/ copies. Translations live in
+// data/blog-translations/<slug>.json and are merged here when present.
+import { existsSync as _existsSync } from 'fs'
+const TRANS_DIR = resolve(ROOT, 'data/blog-translations')
+
+function rewriteBlocks(blocks) {
+  return blocks.map((b) => {
+    if (b.type !== 'image') return b
+    const fid = b.data?.file?.fileId
+    const local = assetPath(fid)
+    if (!local) return b
+    return {
+      ...b,
+      data: {
+        ...b.data,
+        file: { ...(b.data.file || {}), fileId: fid, url: local },
+      },
+    }
+  })
+}
+
+const postsOut = posts
+  .filter((p) => p.status === 'published')
+  .map((p) => {
+    const transPath = resolve(TRANS_DIR, `${p.slug}.json`)
+    let trans = null
+    if (_existsSync(transPath)) {
+      try {
+        trans = JSON.parse(readFileSync(transPath, 'utf-8'))
+      } catch {
+        trans = null
+      }
+    }
+    // Match the post to its company so the blog view can deep-link back.
+    const company = brands.find((b) =>
+      (b.posts || []).includes(p.id) || (b.doc_link || '').includes(`/blog/${p.slug}/`),
+    )
+    return {
+      slug: p.slug,
+      sourceUrl: `https://qlist.ir/blog/${p.slug}/`,
+      companySlug: company?.slug || null,
+      title: {
+        en: trans?.title || '',
+        fa: p.title || '',
+      },
+      summary: {
+        en: trans?.summary || '',
+        fa: p.summary || '',
+      },
+      cover: assetPath(p.cover),
+      body: { time: p.copy?.time, version: p.copy?.version, blocks: rewriteBlocks(p.copy?.blocks || []) },
+      bodyEn: trans?.body || null,
+    }
+  })
+
+// Build an asset manifest (UUID → /qlist-assets/<file>) so the renderer
+// can resolve any inline reference at runtime.
+const flatManifest = { ...manifest }
+
 const out = {
   generatedAt: new Date().toISOString(),
   source: 'https://qlist.ir (via panel.qlist.ir/items/* Directus API)',
   companies,
   categories,
   brandIndex,
+  posts: postsOut,
+  assetManifest: flatManifest,
 }
 
 mkdirSync(dirname(OUT_JSON), { recursive: true })
@@ -379,14 +388,21 @@ export interface Dossier {
   cover: string | null
 }
 
+export type QlistStatus = 'supports-israel' | 'american' | 'flagged'
+
 export interface Company {
   slug: string
   name: { en: string; fa: string }
   country: string
   logo: string | null
-  description: { en: string; fa: string }
+  // Faithful translation of qlist.ir's brand.subtitle ("supports Israel" or
+  // "American company"). Shown as the status badge.
+  qlistStatus: { en: string; fa: string }
+  // Machine-friendly form of the same.
+  status: QlistStatus
+  // Faithful translation of qlist.ir's brand.description — the long-form
+  // "why it's listed" reason. Empty string when qlist has no description.
   claim: { en: string; fa: string }
-  status: 'flagged' | 'unflagged'
   subBrands: SubBrand[]
   dossier: Dossier | null
 }
@@ -397,12 +413,39 @@ export interface Category {
   icon: string
 }
 
+export interface EditorJSBlock {
+  id?: string
+  type: string
+  data: Record<string, unknown>
+}
+
+export interface EditorJSDoc {
+  time?: number
+  version?: string
+  blocks: EditorJSBlock[]
+}
+
+export interface Post {
+  slug: string
+  sourceUrl: string
+  companySlug: string | null
+  title: { en: string; fa: string }
+  summary: { en: string; fa: string }
+  cover: string | null
+  // Persian original (EditorJS body) — guaranteed to be present.
+  body: EditorJSDoc
+  // English translation — null when not yet translated.
+  bodyEn: EditorJSDoc | null
+}
+
 export interface CompaniesData {
   generatedAt: string
   source: string
   companies: Company[]
   categories: Category[]
   brandIndex: Record<string, string>
+  posts: Post[]
+  assetManifest: Record<string, string>
 }
 
 const data: CompaniesData = ${JSON.stringify(out, null, 2)}
